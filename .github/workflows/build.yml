@@ -31,6 +31,16 @@ jobs:
       - name: Import GPG signing key
         run: echo "${{ secrets.GPG_PRIVATE_KEY }}" | gpg --batch --import
 
+      - name: Remove previous kernel packages from repo
+        run: |
+          set -e
+          for pkg in linux-headers-current-rockchip64 \
+                     linux-image-current-rockchip64 \
+                     linux-dtb-current-rockchip64; do
+            echo "Removing package '$pkg' from codename 'trixie' (if present)..."
+            reprepro -b . remove trixie "$pkg" || true
+          done
+
       - name: Add .debs to reprepro
         run: |
           for deb in build/output/debs/linux-headers-current-*.deb \
