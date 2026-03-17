@@ -18,14 +18,12 @@ jobs:
       - name: Build kernel with Armbian action
         uses: armbian/build@v26.2.0-trunk.589
         with:
-          board: ${{ secrets.ARMBIAN_BOARD }}
-          branch: current
-          release: trixie
-          artifacts: kernel
-          install-headers: yes
-          compress-output-image: no
-          build-minimal: yes
-          token: ${{ secrets.GITHUB_TOKEN }}
+          armbian_board: ${{ secrets.ARMBIAN_BOARD }}
+          armbian_branch: current
+          armbian_release: trixie
+          armbian_artifacts: kernel,headers
+          armbian_compress: false
+          armbian_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Install reprepro
         run: sudo apt-get install -y reprepro gnupg
