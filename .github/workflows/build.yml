@@ -45,9 +45,13 @@ jobs:
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
-          git add -A
+          git add -A . ':!build' ':!custom' ':!os'
           git commit -m "Kernel build $(date +%Y-%m-%d)" || echo "Nothing to commit"
-          git push
+          if git rev-parse --abbrev-ref --symbolic-full-name @{u} >/dev/null 2>&1; then
+            git push
+          else
+            echo "No upstream branch configured; skipping git push"
+          fi
 
   deploy-pages:
     needs: build-and-publish
