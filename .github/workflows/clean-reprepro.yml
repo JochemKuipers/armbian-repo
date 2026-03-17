@@ -1,0 +1,65 @@
+name: Clean reprepro kernel packages
+
+on:
+  workflow_dispatch:
+    inputs:
+      codename:
+        description: "Debian codename in reprepro (e.g. trixie)"
+        required: true
+        default: "trixie"
+      packages:
+        description: "Space-separated package names to remove (leave empty to use default kernel packages)"
+        required: false
+        default: ""
+
+jobs:
+  clean-reprepro:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v6
+
+      - name: Install reprepro
+        run: sudo apt-get update && sudo apt-get install -y reprepro
+
+      - name: Show current packages
+        run: |
+          echo "Listing packages for codename '${{ github.event.inputs.codename }}' (if any):"
+          if [ -d "dists/${{ github.event.inputs.codename }}" ]; then
+            reprepro -b . list "${{ github.event.inputs.codename }}" || true
+          else
+            echo "No dists/${{ github.event.inputs.codename }} directory found; nothing to list."
+          fi
+
+      - name: Compute package list to remove
+        id: pkgs
+        run: |
+          if [ -n "${{ github.event.inputs.packages }}" ]; then
+            echo "Using user-provided package list: ${{ github.event.inputs.packages }}"
+            echo "names=${{ github.event.inputs.packages }}" >> "$GITHUB_OUTPUT"
+          else
+            # Default to the Armbian kernel packages we know about
+            DEFAULT_PKGS="linux-headers-current-rockchip64 linux-image-current-rockchip64 linux-dtb-current-rockchip64"
+            echo "No packages input given; defaulting to: $DEFAULT_PKGS"
+            echo "names=$DEFAULT_PKGS" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Remove packages from reprepro
+        run: |
+          set -e
+          CODENAME="${{ github.event.inputs.codename }}"
+          for pkg in ${{ steps.pkgs.outputs.names }}; do
+            echo "Removing package '$pkg' from codename '$CODENAME' (if present)..."
+            reprepro -b . remove "$CODENAME" "$pkg" || true
+          done
+
+      - name: Show packages after cleanup
+        run: |
+          echo "Packages after cleanup for codename '${{ github.event.inputs.codename }}':"
+          if [ -d "dists/${{ github.event.inputs.codename }}" ]; then
+            reprepro -b . list "${{ github.event.inputs.codename }}" || true
+          else
+            echo "No dists/${{ github.event.inputs.codename }} directory found; nothing to list."
+          fi
+
