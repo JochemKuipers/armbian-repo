@@ -31,15 +31,15 @@ jobs:
       - name: Build kernel + headers
         run: |
           cd armbian-build
-          sudo ./compile.sh \
+          ./compile.sh \
             BOARD=${{ secrets.ARMBIAN_BOARD }} \
             BRANCH=current \
             RELEASE=trixie \
             BUILD_ONLY=kernel \
-            KERNEL_ONLY=yes \
             INSTALL_HEADERS=yes \
             COMPRESS_OUTPUTIMAGE=no \
             SHARE_LOG=no
+            EXPERT=yes \
         timeout-minutes: 180
 
       - name: Add .debs to reprepro
