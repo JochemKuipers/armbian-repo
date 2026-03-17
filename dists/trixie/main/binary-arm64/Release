@@ -1,0 +1,5 @@
+Component: main
+Origin: MyArmbian
+Label: MyArmbian
+Architecture: arm64
+Description: Custom Armbian kernel packages
