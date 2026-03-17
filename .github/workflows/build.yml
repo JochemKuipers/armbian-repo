@@ -24,6 +24,7 @@ jobs:
           artifacts: kernel
           install-headers: yes
           compress-output-image: no
+          build-minimal: yes
 
       - name: Install reprepro
         run: sudo apt-get install -y reprepro gnupg
