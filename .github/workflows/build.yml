@@ -19,7 +19,7 @@ jobs:
         uses: armbian/build@v26.2.0-trunk.589
         with:
           armbian_board: ${{ secrets.ARMBIAN_BOARD }}
-          armbian_branch: current
+          armbian_kernel_branch: current
           armbian_release: trixie
           armbian_artifacts: kernel,headers
           armbian_compress: false
