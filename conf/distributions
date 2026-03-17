@@ -1,0 +1,7 @@
+Origin: MyArmbian
+Label: MyArmbian
+Codename: trixie
+Architectures: arm64
+Components: main
+Description: Custom Armbian kernel packages
+SignWith: repo@myarmbian.local

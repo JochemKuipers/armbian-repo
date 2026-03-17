@@ -1,0 +1,77 @@
+name: Build Armbian kernel & publish apt repo
+
+on:
+  workflow_dispatch: # manual trigger only
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+
+    steps:
+      - name: Checkout this repo
+        uses: actions/checkout@v6
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y reprepro gnupg git
+
+      - name: Import GPG signing key
+        run: |
+          echo "${{ secrets.GPG_PRIVATE_KEY }}" | gpg --batch --import
+
+      - name: Clone Armbian build framework
+        run: |
+          git clone --depth=1 https://github.com/armbian/build armbian-build
+
+      - name: Build kernel + headers
+        run: |
+          cd armbian-build
+          sudo ./compile.sh \
+            BOARD=${{ secrets.ARMBIAN_BOARD }} \
+            BRANCH=current \
+            RELEASE=trixie \
+            BUILD_ONLY=kernel \
+            KERNEL_ONLY=yes \
+            INSTALL_HEADERS=yes \
+            COMPRESS_OUTPUTIMAGE=no \
+            SHARE_LOG=no
+        timeout-minutes: 180
+
+      - name: Add .debs to reprepro
+        run: |
+          for deb in armbian-build/output/debs/linux-headers-current-*.deb \
+                     armbian-build/output/debs/linux-image-current-*.deb \
+                     armbian-build/output/debs/linux-dtb-current-*.deb; do
+            [ -f "$deb" ] && reprepro -b . includedeb trixie "$deb"
+          done
+
+      - name: Commit and push repo changes
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add -A
+          git commit -m "Kernel build $(date +%Y-%m-%d)" || echo "Nothing to commit"
+          git push
+
+  deploy-pages:
+    needs: build-and-publish
+    runs-on: ubuntu-24.04
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: "."
+      - uses: actions/deploy-pages@v4
+        id: deployment
