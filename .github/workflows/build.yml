@@ -21,7 +21,7 @@ jobs:
           armbian_board: ${{ secrets.ARMBIAN_BOARD }}
           armbian_kernel_branch: current
           armbian_release: trixie
-          armbian_artifacts: kernel,headers
+          armbian_artifacts: build/output/debs/
           armbian_compress: false
           armbian_token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -33,10 +33,12 @@ jobs:
 
       - name: Add .debs to reprepro
         run: |
-          for deb in output/debs/linux-headers-current-*.deb \
-                     output/debs/linux-image-current-*.deb \
-                     output/debs/linux-dtb-current-*.deb; do
-            [ -f "$deb" ] && reprepro -b . includedeb trixie "$deb"
+          for deb in build/output/debs/linux-headers-current-*.deb \
+                     build/output/debs/linux-image-current-*.deb \
+                     build/output/debs/linux-dtb-current-*.deb; do
+            if [ -f "$deb" ]; then
+              reprepro -b . includedeb trixie "$deb"
+            fi
           done
 
       - name: Commit and push repo changes
