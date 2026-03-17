@@ -51,6 +51,11 @@ jobs:
             fi
           done
 
+      - name: Export GPG public key
+        run: |
+          mkdir -p pubkey
+          gpg --export -a "MyArmbian Repo <repo@myarmbian.local>" > pubkey/myarmbian-repo.asc
+
       - name: Commit and push repo changes
         run: |
           git config user.name "GitHub Actions"
