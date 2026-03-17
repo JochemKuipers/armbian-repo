@@ -25,7 +25,7 @@ jobs:
           install-headers: yes
           compress-output-image: no
           build-minimal: yes
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Install reprepro
         run: sudo apt-get install -y reprepro gnupg
