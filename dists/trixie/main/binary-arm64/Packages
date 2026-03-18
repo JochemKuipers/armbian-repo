@@ -7,9 +7,9 @@ Priority: optional
 Section: kernel
 Filename: pool/main/l/linux-dtb-current-rockchip64/linux-dtb-current-rockchip64_26.2.2_arm64.deb
 Size: 1039384
-SHA256: d78c45dabebb29687d27fae4aa20c4c08d82894dac52cbae41f9c00bcc9121b2
-SHA1: a6f526577dd6f030fcb6f802b6d7d6c79d036de1
-MD5sum: 1badbf3228abfa5241556d79cdfdcd64
+SHA256: dc35c1de739b2ae14a16ca3bfba0b164cc0bbd233035189ced2b3184c8b8def6
+SHA1: 492fc6cba25b55930702d51eaefa890f0b57f306
+MD5sum: fcbbcc6db2a61c7466872623d6d0055b
 Description: Armbian Linux current DTBs in /boot/dtb-6.18.18-current-rockchip64
  This package contains device tree blobs from the Linux kernel, version 6.18.18-current-rockchip64
  version "6.18.18" git revision "3318f10fa28986dc5767444de585e00369c4ace3" codename "Baby Opossum Posse" drivers hash "edd05823_7f7ae875" patches hash "a6b86432c144c2b2" .config hash "8acb090e7a3ae4fc" .config hook hash "444d61f44443a5be" variables hash "c22207b66dc5dd57157df2cd7b9c20559b2ed8ac44b9c3c3b9704002c06b8921" framework bash hash "dc65f79f0c4bfca6"
@@ -25,10 +25,10 @@ Depends: make, gcc, libc6-dev, bison, flex, libssl-dev, libelf-dev, pahole
 Priority: optional
 Section: devel
 Filename: pool/main/l/linux-headers-current-rockchip64/linux-headers-current-rockchip64_26.2.2_arm64.deb
-Size: 15742152
-SHA256: 41aecf6d4ddc117787415ca509bf235c64e68d0e2846593cd7b1eccef6c1b5a0
-SHA1: c3b53abd0d79982406ea492914b93e3eb9dcacac
-MD5sum: 6913f065be53d8f888cb2e7261999ac3
+Size: 15742148
+SHA256: 3c0ebc7b28fd69759580ce48714129bcc3f032812e890fc78ba9e1bcbdd939a0
+SHA1: 36f97315ead5b6a93a2773d753944a9a2ee729e5
+MD5sum: d5b859804a0d3a42a7c817bfefbb87c7
 Description: Armbian Linux current headers 6.18.18-current-rockchip64
  This package provides kernel header files for 6.18.18-current-rockchip64
  .
@@ -48,10 +48,10 @@ Provides: linux-image, linux-image-armbian, armbian-current, wireguard-modules
 Priority: optional
 Section: kernel
 Filename: pool/main/l/linux-6.18.18/linux-image-current-rockchip64_26.2.2_arm64.deb
-Size: 51885628
-SHA256: 8d80194ad7d06d47b4db79da4c0262fb010781d96081520982416c75f491e653
-SHA1: ee94647a7d6e0ae15ac827aa7dccda074b82bcc6
-MD5sum: 94cb78e9e46b8165c29453b00bd0a573
+Size: 51885592
+SHA256: 35066a4168839387fe1a9058364ca1b4a610d561d2660a31db8a02a17efac5bd
+SHA1: ebc4d9b3f9f126daaf881a859edc5f2640b25f9d
+MD5sum: aff5092588d38a91f56e45f148e9f05c
 Description: Armbian Linux current kernel image 6.18.18-current-rockchip64
  This package contains the Linux kernel, modules and corresponding other files.
  version "6.18.18" git revision "3318f10fa28986dc5767444de585e00369c4ace3" codename "Baby Opossum Posse" drivers hash "edd05823_7f7ae875" patches hash "a6b86432c144c2b2" .config hash "8acb090e7a3ae4fc" .config hook hash "444d61f44443a5be" variables hash "c22207b66dc5dd57157df2cd7b9c20559b2ed8ac44b9c3c3b9704002c06b8921" framework bash hash "dc65f79f0c4bfca6"

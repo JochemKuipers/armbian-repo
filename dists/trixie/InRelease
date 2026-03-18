@@ -4,35 +4,35 @@ Hash: SHA512
 Origin: MyArmbian
 Label: MyArmbian
 Codename: trixie
-Date: Tue, 17 Mar 2026 21:52:20 UTC
+Date: Wed, 18 Mar 2026 17:25:54 UTC
 Architectures: arm64
 Components: main
 Description: Custom Armbian kernel packages
 MD5Sum:
- 994c5d37fbffc774293f82ab697bdfd6 3614 main/binary-arm64/Packages
- c334f3efe732e9cbd03626153f50ba9d 1157 main/binary-arm64/Packages.gz
+ a91a69aec0b5e202894fcc5089da1032 3614 main/binary-arm64/Packages
+ 13671d425bf7d60569a5057559574d62 1156 main/binary-arm64/Packages.gz
  7a1a5d2160fccf5e8b9c7f55d99c8074 115 main/binary-arm64/Release
 SHA1:
- 5774f4cd096477cd275f6588310fe793ff8ec73d 3614 main/binary-arm64/Packages
- 9fe9481ac6fba5e0f9c05bf8793948f4875dfcff 1157 main/binary-arm64/Packages.gz
+ 3e5782cdbc19df360ccd1583f601736b72b7c873 3614 main/binary-arm64/Packages
+ 125a7111484fbc889aac938ce35bf80d61dcc92e 1156 main/binary-arm64/Packages.gz
  bf54562e5a2d1e03d220ddefce6f41b4f7c4565d 115 main/binary-arm64/Release
 SHA256:
- 6916e95e38a42dd0d4f9d1d154b119ba8ccf226621d94c6c2518545e84121c55 3614 main/binary-arm64/Packages
- e12ec7892fd432d4d8f61e1dd74a70312e36fce3d256f2babd2ca4552c88ba9a 1157 main/binary-arm64/Packages.gz
+ 85601a4c05d78b5a004e6c99d979fad25226735f870238187e7347875968a7c6 3614 main/binary-arm64/Packages
+ 2dc61e880d90d85c6ee4bd3bc5476631b98d4b51ed223711069619c0027ddb2a 1156 main/binary-arm64/Packages.gz
  fa395d64884183b987dd0111ebc1ec5a8fd955c7eeeb25d81694f1978e03f6a6 115 main/binary-arm64/Release
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAEBCgAdFiEEqO7x54eQuWGd44r+udHMFBSQiKQFAmm5zRQACgkQudHMFBSQ
-iKQ5kRAAmJDjwnn7Y5OSxzrEnfgVBK+jJrxPqUh5QDmHckn6zKS6rOGnyh7AivzL
-gk1h8AITU/BP65ap5kstnsQw00hBQ07Y4g3dRjumxvwXSLQHTM5O/QCvVfKbzZqa
-WPMDXBYYMULPQ62yBXr9naA0kgJ0OTCKbWjB9IbsqkW8dkUzXbFgUoc4KIPoTUFa
-v52gKSgtx/0R+VeKaoC47QWWFBPaEWAeDJh4x+ta1vJ3iodJ9k/srDEd6n6Wp18s
-P6I+cpb0KEM9gSixD1rkiTrqCm9ZaH4IbzJwnKNK5/7d37A1LTL3m/93hNsKiU5A
-AAEAZ49A95zA9FZl+TBgKmdqBwLLVcyPnmC/wboose+/N9CvTfeITrJBwnFVTKk2
-r5F96lISdykQjDkn8eMHrtOJehsCyGTQIc8bCNQe2qUhGez9yHhoKGSeNZHS1npb
-kF2kjg3IRCflKuH/qFYccx82Dw2XL3dB2dfsXpOlbhirFa+rCYHUZ7UeTqnWRagA
-W+5W4nhbTqTLvuu1lx3cj9/700zY+OVI6ptt3OVx4Vtsj/Znt36UkQzm/2JFv4Rd
-3MhY80af6bKKn8jI45OCGkdgwma899k6jps7TJ5Lk4O5jW2ap2R08sxuDobDBNBW
-BDyVfiLfFHPs0IK3WRircvGHHIIdba+pigSS9CLJXwRqAjZoFyE=
-=sLRq
+iQIzBAEBCgAdFiEEqO7x54eQuWGd44r+udHMFBSQiKQFAmm64CIACgkQudHMFBSQ
+iKTJow/+NXfNU/bgKZ+lM8fQoqXywE4kQTRwRGLYlT81N2n4IK6djZ9IQ0rRp7QN
+r6FsOUREZ9mOlJT/YR6vIkw4EhFtuGNLqd5uQ/ynanGw6QRzmDcJmYVg3odHgbTZ
+D1oqUvCH2IrFIDJ4x/FkpoNRbWXi5B9b/tHvAHZishzpNgURBXH7lzimkkMZRcSR
+ke7kr63bJygTS9IeeRj716ZpYnIrGQHqwNBbLvZPmq4kOwMuDLZHVjgVlHlIwJeX
+/C6bxrEiJ3cRp96+fDJ897D926ELOA8mKnbhZH0G0lJLa1cYpwxoi8i2BU0xPaZL
+uemjVd7DxqguyXbtGzRfDbdQq5uXCMw5Z7TDRFjj5FqC9d5gYsu2xuu2NWtRoD1e
+BglE5a0etPRVicKkAgUmU5YBhJGNDIHb2OlmmuH32yUXyPEGBLa5iGuZh8dV3Yb1
+MVdCKsHZBLw+KJlyC4tGMV74gvTduUBuXUXP9Q5cr78Ceh6w/H6DHmiG54UR9bIp
+kr5YxnGdfnM/tfBU+tOYWQMi0fVelQscI5qNTcg+YX8OqZkPhVNH/Eo0GoDAJjmq
+6Td7sNJTuoag02K0gRLpwTm4cVZdHIJcJmREg78vHBJvj8OUl3zSZGZTmZrCUaRj
+KOmb4G//ZN+43jYh3j+97rRxMNuDZRJgNG7lQQPv1wxYS1uItaI=
+=cufV
 -----END PGP SIGNATURE-----
